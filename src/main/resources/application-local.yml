@@ -1,0 +1,8 @@
+db:
+  url: jdbc:postgresql://localhost:5432/movie_db
+  username: movie_user
+  password: movie_pass
+
+logging:
+  level:
+    com.pluralsight: DEBUG

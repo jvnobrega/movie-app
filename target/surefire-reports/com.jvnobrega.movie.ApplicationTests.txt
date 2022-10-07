@@ -1,0 +1,29 @@
+-------------------------------------------------------------------------------
+Test set: com.jvnobrega.movie.ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.686 s <<< FAILURE! - in com.jvnobrega.movie.ApplicationTests
+contextLoads  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 1
+-> Applied to database : -1633305588
+-> Resolved locally    : -843685498
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2
+-> Applied to database : 1189219068
+-> Resolved locally    : 1012244198
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+Caused by: org.flywaydb.core.api.exception.FlywayValidateException: 
+Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 1
+-> Applied to database : -1633305588
+-> Resolved locally    : -843685498
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2
+-> Applied to database : 1189219068
+-> Resolved locally    : 1012244198
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+

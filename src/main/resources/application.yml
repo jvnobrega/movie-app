@@ -1,0 +1,50 @@
+server:
+  port: 8080
+  error:
+    include-binding-errors: always
+    include-message: always
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  paths-to-match: /**
+  packages-to-scan: com.jvnobrega.movie
+  show-actuator: true
+  swagger-ui:
+    operations-sorter: alpha
+    disable-swagger-default-url: true
+    path: /swagger-ui.html
+
+spring:
+  profiles:
+    active: local
+  datasource:
+    url: ${db.url}
+    username: ${db.username}
+    password: ${db.password}
+  jpa:
+    hibernate.ddl-auto: validate
+    open-in-view: true
+    hibernate.use-new-id-generator-mappings: true
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc.lob.non_contextual_creation: true
+        dialect: org.hibernate.dialect.PostgreSQL81Dialect
+  flyway:
+    baseline-on-migrate: true
+
+app.version: 1.0.0
+
+management:
+  endpoint:
+    health:
+      show-details: always
+    loggers:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: beans, metrics, info, health, loggers, readiness
+

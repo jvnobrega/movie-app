@@ -7,6 +7,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -26,6 +27,6 @@ public class Actor extends DomainModelUuid {
     private LocalDate birthdate;
 
     @ManyToMany(mappedBy = "actors")
-    private List<Movie> movies;
+    private List<Movie> movies = new ArrayList<>();
 
 }

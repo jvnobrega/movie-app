@@ -7,10 +7,14 @@ import com.jvnobrega.movie.model.Actor;
 import com.jvnobrega.movie.model.Movie;
 import org.springframework.data.domain.Page;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static java.lang.String.join;
+import static java.util.Collections.emptyList;
 
 public class MovieConverter {
 
@@ -37,14 +41,21 @@ public class MovieConverter {
                 .genre(movie.getGenre())
                 .releaseDate(movie.getReleaseDate())
                 .storyLine(movie.getStoryLine())
-                .actors(movie
-                        .getActors()
-                        .stream()
-                        .map(getFullName())
-                        .collect(Collectors.toList()))
+                .actors(getActors(movie))
                 .inputDate(movie.getInputDate())
                 .lastUpdatedDate(movie.getLastUpdatedDate())
                 .build();
+    }
+
+    private static List<String> getActors(Movie movie) {
+        if (Objects.isNull(movie.getActors())) {
+            return emptyList();
+        }
+        return movie
+                .getActors()
+                .stream()
+                .map(getFullName())
+                .collect(Collectors.toList());
     }
 
     private static Function<Actor, String> getFullName() {
